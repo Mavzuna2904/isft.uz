@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISFT - International School of Finance Technology and Science</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1D3557', // ISFT Dark Blue
+                        secondary: '#E63946', // ISFT Red/Accent
+                        accent: '#457B9D', // Lighter Blue
+                        light: '#F1FAEE', // Off-white
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+
+        /* Smooth scroll for anchor links */
+        html { scroll-behavior: smooth; }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+
+        /* Nav Dropdown Animations */
+        .group:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        /* Testimonial Slider CSS */
+        .slider-container {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+        .slider-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            gap: 1.5rem;
+        }
+        .slide {
+            min-width: calc(33.333% - 1rem); /* Show 3 slides on desktop */
+            flex-shrink: 0;
+        }
+        @media (max-width: 1024px) {
+            .slide {
+                min-width: calc(50% - 0.75rem); /* 2 slides on tablet */
+            }
+        }
+        @media (max-width: 640px) {
+            .slide {
+                min-width: 100%; /* 1 slide on mobile */
+            }
+        }
+
+        /* Tabs styling */
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.5s ease; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #1D3557, #457B9D);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="antialiased flex flex-col min-h-screen">
+
+    <!-- Top Bar (Language, minimal contacts) -->
+    <div class="bg-primary text-white text-sm py-2 px-4 hidden md:block">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex gap-4 items-center">
+                <a href="#" class="hover:text-gray-300 flex items-center gap-1"><i class="ph ph-phone"></i> +998 55 508-37-37</a>
+                <a href="#" class="hover:text-gray-300 flex items-center gap-1"><i class="ph ph-envelope"></i> info@isft.uz</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <a href="#" class="hover:underline opacity-50">Eng</a>
+                <a href="#" class="hover:underline opacity-50">Рус</a>
+                <a href="#" class="hover:underline font-bold">O'zb</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-2">
+                    <!-- Placeholder for actual ISFT logo -->
+                    <div class="w-12 h-12 bg-primary rounded-md flex items-center justify-center text-white font-bold text-xl">
+                        ISFT
+                    </div>
+                    <div class="flex flex-col leading-tight hidden sm:flex">
+                        <span class="text-primary font-bold text-lg">ISFT</span>
+                        <span class="text-gray-500 text-xs">Instituti</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden lg:flex gap-6 items-center">
+                    
+                    <div class="relative group py-4">
+                        <button class="font-medium text-gray-700 hover:text-primary flex items-center gap-1">Biz haqimizda <i class="ph ph-caret-down text-xs"></i></button>
+                        <div class="absolute top-full left-0 mt-0 w-64 bg-white border border-gray-100 shadow-xl rounded-lg overflow-hidden dropdown-menu z-50">
+                            <a href="#" class="block px-4 py-3 hover:bg-gray-50 text-sm border-b">Umumiy ma'lumot</a>
+                            <a href="#" class="block px-4 py-3 hover:bg-gray-50 text-sm border-b">ACCA haqida</a>
+                            <a href="#" class="block px-4 py-3 hover:bg-gray-50 text-sm border-b">Tuzilma</a>
+                            <a href="#" class="block px-4 py-3 hover:bg-gray-50 text-sm">Me'yoriy hujjatlar</a>
+                        </div>
+                    </div>
+
+                    <div class="relative group py-4">
+                        <button class="font-medium text-gray-700 hover:text-primary flex items-center gap-1">Faoliyat <i class="ph ph-caret-down text-xs"></i></button>
+                        <div class="absolute top-full left-0 mt-0 w-56 bg-white border border-gray-100 shadow-xl rounded-lg overflow-hidden dropdown-menu z-50">
+                            <a href="#" class="block px-4 py-3 hover:bg-gray-50 text-sm border-b">Ilmiy faoliyat</a>
+                            <a href="#" class="block px-4 py-3 hover:bg-gray-50 text-sm border-b">O'quv faoliyati</a>
+                            <a href="#" class="block px-4 py-3 hover:bg-gray-50 text-sm">Xalqaro hamkorlik</a>
+                        </div>
+                    </div>
+
+                    <div class="relative group py-4">
+                        <button class="font-medium text-gray-700 hover:text-primary flex items-center gap-1">Abiturientlarga <i class="ph ph-caret-down text-xs"></i></button>
+                        <div class="absolute top-full left-0 mt-0 w-64 bg-white border border-gray-100 shadow-xl rounded-lg overflow-hidden dropdown-menu z-50">
+                            <a href="#" class="block px-4 py-3 hover:bg-gray-50 text-sm border-b font-medium text-primary">Qabul Komissiyasi</a>
+                            <a href="#" class="block px-4 py-3 hover:bg-gray-50 text-sm border-b">Bakalavriat</a>
+                            <a href="#" class="block px-4 py-3 hover:bg-gray-50 text-sm border-b">Magistratura</a>
+                            <a href="#" class="block px-4 py-3 hover:bg-gray-50 text-sm">O'qishni Ko'chirish</a>
+                        </div>
+                    </div>
+
+                    <div class="relative group py-4">
+                        <button class="font-medium text-gray-700 hover:text-primary flex items-center gap-1">Talabalarga <i class="ph ph-caret-down text-xs"></i></button>
+                        <div class="absolute top-full left-0 mt-0 w-56 bg-white border border-gray-100 shadow-xl rounded-lg overflow-hidden dropdown-menu z-50">
+                            <a href="#" class="block px-4 py-3 hover:bg-gray-50 text-sm border-b">Karyera Markazi</a>
+                            <a href="#" class="block px-4 py-3 hover:bg-gray-50 text-sm border-b">Kutubxona</a>
+                            <a href="#" class="block px-4 py-3 hover:bg-gray-50 text-sm">Talaba ishlari</a>
+                        </div>
+                    </div>
+
+                    <a href="#" class="font-medium text-gray-700 hover:text-primary py-4">Yangiliklar</a>
+                    <a href="#" class="font-medium text-gray-700 hover:text-primary py-4">Aloqa</a>
+
+                    <a href="#" class="bg-primary text-white px-5 py-2 rounded-full font-medium hover:bg-opacity-90 transition shadow-md shadow-primary/30 ml-2">
+                        Qabul
+                    </a>
+                </nav>
+
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-gray-600 hover:text-primary text-2xl p-2">
+                    <i class="ph ph-list"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-lg">
+            <div class="px-4 py-2 flex flex-col gap-2 h-[70vh] overflow-y-auto">
+                <a href="#" class="block py-3 border-b text-gray-700 font-medium">Biz haqimizda</a>
+                <a href="#" class="block py-3 border-b text-gray-700 font-medium">Faoliyat</a>
+                <a href="#" class="block py-3 border-b text-gray-700 font-medium">Abiturientlarga</a>
+                <a href="#" class="block py-3 border-b text-gray-700 font-medium">Talabalarga</a>
+                <a href="#" class="block py-3 border-b text-gray-700 font-medium">Yangiliklar</a>
+                <a href="#" class="block py-3 border-b text-gray-700 font-medium">Aloqa</a>
+                <div class="py-4 flex gap-4">
+                    <a href="#" class="text-gray-500 hover:text-primary font-medium">Eng</a>
+                    <a href="#" class="text-gray-500 hover:text-primary font-medium">Рус</a>
+                    <a href="#" class="text-primary font-bold">O'zb</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="relative bg-primary text-white overflow-hidden py-20 lg:py-32">
+            <!-- Background Decoration / Image Placeholder -->
+            <div class="absolute inset-0 z-0">
+                <img src="https://placehold.co/1920x1080/1D3557/457B9D?text=ISFT+Campus+Background" alt="ISFT Background" class="w-full h-full object-cover opacity-30 mix-blend-overlay">
+                <div class="absolute inset-0 bg-gradient-to-r from-primary to-transparent opacity-90"></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 relative z-10 grid lg:grid-cols-2 gap-10 items-center">
+                <div class="space-y-6">
+                    <div class="inline-block px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-sm font-medium mb-2 backdrop-blur-sm">
+                        Ta'lim berish va tahsil olishda o'zgacha yondashuv
+                    </div>
+                    <h1 class="text-4xl lg:text-6xl font-bold leading-tight">
+                        ISFT Institutining <br><span class="text-secondary">missiyasi</span> va falsafasi
+                    </h1>
+                    <p class="text-lg text-gray-200 max-w-lg leading-relaxed">
+                        Bizning missiyamiz - talabalarga karyera uchun zarur ko'nikmalarni berish, ularni turli xil professional muhitlarda muvaffaqiyat qozonishga tayyorlashdir.
+                    </p>
+                    
+                    <div class="pt-4 flex flex-wrap gap-4 items-center">
+                        <a href="#" class="bg-secondary text-white px-8 py-3.5 rounded-lg font-bold hover:bg-red-700 transition shadow-lg shadow-red-500/30 flex items-center gap-2">
+                            Hoziroq biz bilan bog'laning <i class="ph-bold ph-arrow-right"></i>
+                        </a>
+                        <p class="text-sm text-gray-300 max-w-xs">
+                            O'zingiz istagan savollarga 5 daqiqa ichida javob oling va o'z o'rningizni band qiling.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-6 pt-8 border-t border-white/10 mt-8">
+                        <div>
+                            <p class="text-3xl font-bold text-white">25 000+</p>
+                            <p class="text-sm text-gray-300">Talabalar</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-bold text-white">30 000+</p>
+                            <p class="text-sm text-gray-300">ko'p inson aynan bizni tanladi!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side Graphic / Banner -->
+                <div class="hidden lg:flex justify-end">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-2xl max-w-md w-full shadow-2xl relative overflow-hidden">
+                        <!-- Decorative circle -->
+                        <div class="absolute -top-10 -right-10 w-40 h-40 bg-secondary rounded-full blur-3xl opacity-50"></div>
+                        
+                        <h3 class="text-2xl font-bold mb-4">Hoziroq ISFT instituti talabasi bo'ling</h3>
+                        <p class="text-gray-200 mb-6">va bizning institutimizda BEPUL o'qish imkoniyatini qo'lga kiriting</p>
+                        
+                        <a href="#" class="block w-full bg-white text-primary text-center py-3 rounded-lg font-bold hover:bg-gray-100 transition">
+                            ISFT talabasi bo'ling
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programs Section -->
+        <section class="py-20 bg-white" id="programs">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-primary mb-4">ISFT da quyidagi sohalardan birida o'qishingiz mumkin</h2>
+                    <p class="text-gray-500 max-w-2xl mx-auto">Haqiqiy professionallardan ta'lim oling va kelajak uchun mustahkam poydevor yarating.</p>
+                </div>
+
+                <!-- Tabs Navigation -->
+                <div class="flex justify-center mb-10">
+                    <div class="inline-flex bg-gray-100 p-1 rounded-xl">
+                        <button onclick="switchTab('bakalavr')" id="btn-bakalavr" class="px-8 py-3 rounded-lg text-sm font-medium transition-all shadow-sm bg-white text-primary">Bakalavriat</button>
+                        <button onclick="switchTab('magistratura')" id="btn-magistratura" class="px-8 py-3 rounded-lg text-sm font-medium transition-all text-gray-600 hover:text-primary">Magistratura</button>
+                    </div>
+                </div>
+
+                <!-- Tabs Content -->
+                <div id="tab-bakalavr" class="tab-content active">
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Program Card 1 -->
+                        <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-shadow group">
+                            <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                                <i class="ph-duotone ph-desktop"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-primary mb-4">Iqtisodiyot va axborot texnologiyalari</h3>
+                            <ul class="space-y-2 text-gray-600 text-sm mb-6">
+                                <li class="flex items-start gap-2"><i class="ph-bold ph-check text-green-500 mt-1"></i> Axborot tizimlari va texnologiyalari</li>
+                                <li class="flex items-start gap-2"><i class="ph-bold ph-check text-green-500 mt-1"></i> Iqtisodiyot</li>
+                                <li class="flex items-start gap-2"><i class="ph-bold ph-check text-green-500 mt-1"></i> Marketing</li>
+                                <li class="flex items-start gap-2"><i class="ph-bold ph-check text-green-500 mt-1"></i> Bank ishi</li>
+                                <li class="flex items-start gap-2"><i class="ph-bold ph-check text-green-500 mt-1"></i> Axborot xavfsizligi</li>
+                            </ul>
+                            <a href="#" class="text-primary font-medium hover:underline flex items-center gap-1">Batafsil <i class="ph ph-arrow-right"></i></a>
+                        </div>
+
+                        <!-- Program Card 2 -->
+                        <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-shadow group">
+                            <div class="w-14 h-14 bg-green-100 text-green-600 rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                                <i class="ph-duotone ph-chart-line-up"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-primary mb-4">Xalqaro iqtisodiyot va moliya</h3>
+                            <ul class="space-y-2 text-gray-600 text-sm mb-6">
+                                <li class="flex items-start gap-2"><i class="ph-bold ph-check text-green-500 mt-1"></i> Biznes va menejment</li>
+                                <li class="flex items-start gap-2"><i class="ph-bold ph-check text-green-500 mt-1"></i> Moliya sohasida boshqaruv</li>
+                                <li class="flex items-start gap-2"><i class="ph-bold ph-check text-green-500 mt-1"></i> Buxgalteriya hisobi va moliya</li>
+                            </ul>
+                            <a href="#" class="text-primary font-medium hover:underline flex items-center gap-1 mt-auto">Batafsil <i class="ph ph-arrow-right"></i></a>
+                        </div>
+
+                        <!-- Program Card 3 -->
+                        <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-shadow group">
+                            <div class="w-14 h-14 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                                <i class="ph-duotone ph-books"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-primary mb-4">Ijtimoiy-gumanitar fanlar va tillar</h3>
+                            <ul class="space-y-2 text-gray-600 text-sm mb-6">
+                                <li class="flex items-start gap-2"><i class="ph-bold ph-check text-green-500 mt-1"></i> Xorijiy til va adabiyoti</li>
+                                <li class="flex items-start gap-2"><i class="ph-bold ph-check text-green-500 mt-1"></i> Maktabgacha ta'lim</li>
+                                <li class="flex items-start gap-2"><i class="ph-bold ph-check text-green-500 mt-1"></i> Boshlang'ich ta'lim</li>
+                                <li class="flex items-start gap-2"><i class="ph-bold ph-check text-green-500 mt-1"></i> Pedagogika va Psixologiya</li>
+                            </ul>
+                            <a href="#" class="text-primary font-medium hover:underline flex items-center gap-1">Batafsil <i class="ph ph-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-magistratura" class="tab-content">
+                    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                         <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+                            <h3 class="text-xl font-bold text-primary mb-4">Moliya va Davlat nazorati</h3>
+                            <ul class="space-y-2 text-gray-600 text-sm mb-6">
+                                <li class="flex items-start gap-2"><i class="ph-bold ph-check text-primary mt-1"></i> Davlat moliyaviy nazorat va auditi</li>
+                                <li class="flex items-start gap-2"><i class="ph-bold ph-check text-primary mt-1"></i> Buxgalteriya hisobi</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+                            <h3 class="text-xl font-bold text-primary mb-4">Gumanitar yo'nalishlar</h3>
+                            <ul class="space-y-2 text-gray-600 text-sm mb-6">
+                                <li class="flex items-start gap-2"><i class="ph-bold ph-check text-primary mt-1"></i> Xorijiy til va adabiyoti</li>
+                                <li class="flex items-start gap-2"><i class="ph-bold ph-check text-primary mt-1"></i> Pedagogika</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advantages -->
+        <section class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold text-primary mb-4">Imkoniyatlar va Afzalliklar</h2>
+                    <p class="text-gray-500">ISFT sizga quyidagilarni taqdim etadi</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 text-center">
+                        <div class="w-20 h-20 mx-auto bg-primary rounded-full flex items-center justify-center text-white text-4xl mb-6 shadow-lg shadow-primary/30">
+                            <i class="ph-duotone ph-student"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Yuqori sifatli ta'lim</h3>
+                        <p class="text-gray-500 text-sm">Xalqaro standartlarga mos, zamonaviy metodikalar asosida ta'lim oling.</p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 text-center relative md:-mt-8">
+                        <div class="w-20 h-20 mx-auto bg-secondary rounded-full flex items-center justify-center text-white text-4xl mb-6 shadow-lg shadow-red-500/30">
+                            <i class="ph-duotone ph-briefcase"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Yetuk mutaxassis</h3>
+                        <p class="text-gray-500 text-sm">Tanlagan yo'nalishingizda chuqur bilim va amaliy ko'nikmalarga ega bo'ling.</p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 text-center">
+                        <div class="w-20 h-20 mx-auto bg-primary rounded-full flex items-center justify-center text-white text-4xl mb-6 shadow-lg shadow-primary/30">
+                            <i class="ph-duotone ph-buildings"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Coworking</h3>
+                        <p class="text-gray-500 text-sm">Institutda o'qish davrida ishlash imkoniyati, qulay muhit va amaliyot.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="py-20 bg-white overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="flex justify-between items-end mb-12">
+                    <div>
+                        <h2 class="text-3xl font-bold text-primary mb-4">Biz haqimizda talaba va o'qituvchilarning fikri</h2>
+                        <p class="text-gray-500">Ko'pchilik bizning sifatli ta'limimiz va institut binosida yaratilgan qulayliklardan mamnun</p>
+                    </div>
+                    <div class="hidden sm:flex gap-2">
+                        <button onclick="moveSlider(-1)" class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition"><i class="ph ph-caret-left"></i></button>
+                        <button onclick="moveSlider(1)" class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition"><i class="ph ph-caret-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="slider-container">
+                    <div class="slider-track" id="testimonial-track">
+                        
+                        <!-- Testimonial 1 -->
+                        <div class="slide">
+                            <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 h-full flex flex-col relative">
+                                <i class="ph-fill ph-quotes text-4xl text-gray-200 absolute top-6 right-6"></i>
+                                <p class="text-gray-700 italic mb-6 relative z-10 flex-grow">"ISFTda yaratilgan sharoitlar menga tuganmas motivatsiya manbai bo'ladi. Har kuni yangi narsa o'rganaman."</p>
+                                <div class="flex items-center gap-4 mt-auto">
+                                    <div class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden">
+                                        <img src="https://placehold.co/100x100/1D3557/FFFFFF?text=AD" alt="User" class="w-full h-full object-cover">
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-primary">Anvar Deberdiyev</h4>
+                                        <p class="text-xs text-gray-500">O'qituvchi</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 2 -->
+                        <div class="slide">
+                            <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 h-full flex flex-col relative">
+                                <i class="ph-fill ph-quotes text-4xl text-gray-200 absolute top-6 right-6"></i>
+                                <p class="text-gray-700 italic mb-6 relative z-10 flex-grow">"Quvnoq o'qituvchilar, erkinlik, atmosferani ISFT da topdim! O'qish jarayoni juda qiziqarli o'tadi."</p>
+                                <div class="flex items-center gap-4 mt-auto">
+                                    <div class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden">
+                                        <img src="https://placehold.co/100x100/457B9D/FFFFFF?text=AS" alt="User" class="w-full h-full object-cover">
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-primary">Asliddin Sadikov</h4>
+                                        <p class="text-xs text-gray-500">Talaba</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 3 -->
+                        <div class="slide">
+                            <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 h-full flex flex-col relative">
+                                <i class="ph-fill ph-quotes text-4xl text-gray-200 absolute top-6 right-6"></i>
+                                <p class="text-gray-700 italic mb-6 relative z-10 flex-grow">"Mamnun va xushchaqchaq talabalar bilan hecham zerikmayman! Muhit haqiqatan ham juda zo'r."</p>
+                                <div class="flex items-center gap-4 mt-auto">
+                                    <div class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden">
+                                        <img src="https://placehold.co/100x100/E63946/FFFFFF?text=FSH" alt="User" class="w-full h-full object-cover">
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-primary">Farangiz Shirinova</h4>
+                                        <p class="text-xs text-gray-500">O'qituvchi</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 4 -->
+                        <div class="slide">
+                            <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 h-full flex flex-col relative">
+                                <i class="ph-fill ph-quotes text-4xl text-gray-200 absolute top-6 right-6"></i>
+                                <p class="text-gray-700 italic mb-6 relative z-10 flex-grow">"Talabalar uchun yaratilgan sharoitlar juda zo'r, aynan men xoxlagan insitut ekan. Barchaga tavsiya qilaman."</p>
+                                <div class="flex items-center gap-4 mt-auto">
+                                    <div class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden">
+                                        <img src="https://placehold.co/100x100/1D3557/FFFFFF?text=MY" alt="User" class="w-full h-full object-cover">
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-primary">Madina Yunusova</h4>
+                                        <p class="text-xs text-gray-500">Talaba</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                
+                <!-- Mobile controls -->
+                <div class="flex justify-center mt-6 sm:hidden gap-4">
+                    <button onclick="moveSlider(-1)" class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition"><i class="ph ph-caret-left"></i></button>
+                    <button onclick="moveSlider(1)" class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition"><i class="ph ph-caret-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="flex justify-between items-end mb-12">
+                    <div>
+                        <h2 class="text-3xl font-bold text-primary mb-2">Yangiliklar</h2>
+                        <p class="text-gray-500">Institutimizdagi eng so'ngi yangiliklarni kuzatib boring</p>
+                    </div>
+                    <a href="#" class="hidden sm:inline-flex items-center gap-1 text-primary font-medium hover:underline">
+                        Barcha yangiliklar <i class="ph ph-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Featured News (Takes 2 cols on lg) -->
+                    <div class="lg:col-span-2 group bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition flex flex-col h-full">
+                        <div class="h-64 overflow-hidden relative">
+                            <img src="https://placehold.co/800x400/1D3557/FFFFFF?text=ISFT+Council+Meeting" alt="News" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute top-4 left-4 bg-secondary text-white text-xs font-bold px-3 py-1 rounded">Yangilik</div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+                                <i class="ph ph-calendar-blank"></i> 16 Sentabr, 2026
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-3 group-hover:text-primary transition line-clamp-2">ISFT instituti kengashining navbatdagi majlisi bo'lib o'tdi</h3>
+                            <p class="text-gray-600 text-sm mb-4 line-clamp-2 flex-grow">Bizning institutimizda BЕPUL o'qish imkoniyatini qo'lga kiriting! Majlisda ko'plab yangi qarorlar qabul qilindi...</p>
+                            <a href="#" class="text-primary font-medium text-sm mt-auto inline-flex items-center gap-1">Batafsil <i class="ph ph-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Small News 1 -->
+                    <div class="group bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition flex flex-col h-full">
+                        <div class="h-40 overflow-hidden relative">
+                            <img src="https://placehold.co/400x300/457B9D/FFFFFF?text=Independence+Day" alt="News" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <div class="flex items-center gap-2 text-xs text-gray-500 mb-2">
+                                <i class="ph ph-calendar-blank"></i> 10 Sentabr, 2026
+                            </div>
+                            <h3 class="text-base font-bold text-gray-800 mb-2 group-hover:text-primary transition line-clamp-3">ISFT institutida "Mustaqillik darsi" tashkil etildi</h3>
+                        </div>
+                    </div>
+
+                    <!-- Small News 2 -->
+                    <div class="group bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition flex flex-col h-full">
+                        <div class="h-40 overflow-hidden relative">
+                            <img src="https://placehold.co/400x300/457B9D/FFFFFF?text=PhD+Interviews" alt="News" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <div class="flex items-center gap-2 text-xs text-gray-500 mb-2">
+                                <i class="ph ph-calendar-blank"></i> 26 Avgust, 2026
+                            </div>
+                            <h3 class="text-base font-bold text-gray-800 mb-2 group-hover:text-primary transition line-clamp-3">Mustaqil izlanuvchilik uchun suhbat bo'lib o'tdi!</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-[#112240] text-gray-300 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12 border-b border-gray-700/50 pb-12">
+                
+                <!-- Brand Info -->
+                <div class="space-y-6">
+                    <a href="#" class="flex items-center gap-2 mb-4">
+                        <div class="w-10 h-10 bg-white rounded-md flex items-center justify-center text-primary font-bold text-lg">
+                            ISFT
+                        </div>
+                        <span class="text-white font-bold text-xl">ISFT Instituti</span>
+                    </a>
+                    <p class="text-sm text-gray-400">Yorqin kelajagingizni ISFT Instituti bilan boshlang! Ta'lim berish va tahsil olishda o'zgacha yondashuv.</p>
+                    <div class="flex gap-4 pt-2">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/20 transition text-white"><i class="ph-fill ph-instagram-logo"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/20 transition text-white"><i class="ph-fill ph-telegram-logo"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/20 transition text-white"><i class="ph-fill ph-facebook-logo"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/20 transition text-white"><i class="ph-fill ph-youtube-logo"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-white font-bold mb-6 text-lg">Tezkor havolalar</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-white hover:pl-1 transition-all">Biz haqimizda</a></li>
+                        <li><a href="#" class="hover:text-white hover:pl-1 transition-all">Karyera</a></li>
+                        <li><a href="#" class="hover:text-white hover:pl-1 transition-all">Yangiliklar</a></li>
+                        <li><a href="#" class="hover:text-white hover:pl-1 transition-all">FAQ</a></li>
+                        <li><a href="#" class="hover:text-white hover:pl-1 transition-all">Me'yoriy hujjatlar</a></li>
+                    </ul>
+                </div>
+
+                <!-- Programs -->
+                <div>
+                    <h3 class="text-white font-bold mb-6 text-lg">Ta'lim dasturlari</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-white hover:pl-1 transition-all">Bakalavriat</a></li>
+                        <li><a href="#" class="hover:text-white hover:pl-1 transition-all">Magistratura</a></li>
+                        <li><a href="#" class="hover:text-white hover:pl-1 transition-all">Doktorantura</a></li>
+                        <li><a href="#" class="hover:text-white hover:pl-1 transition-all">O'qishni ko'chirish</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-white font-bold mb-6 text-lg">Aloqa</h3>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i class="ph ph-map-pin text-xl text-secondary mt-0.5"></i>
+                            <span>Toshkent viloyati, Qibray tumani, Universitet ko'chasi, 7-uy. (Asosiy bino)</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="ph ph-phone text-xl text-secondary"></i>
+                            <a href="tel:+998555083737" class="hover:text-white">+998 55 508-37-37</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="ph ph-envelope text-xl text-secondary"></i>
+                            <a href="mailto:info@isft.uz" class="hover:text-white">info@isft.uz</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <p>&copy; 2026 isft.uz, Barcha huquqlar himoyalangan</p>
+                <div class="mt-4 md:mt-0 flex gap-4">
+                    <a href="#" class="hover:text-white">Maxfiylik siyosati</a>
+                    <a href="#" class="hover:text-white">Sayt xaritasi</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Tabs Logic for Programs Section
+        function switchTab(tabId) {
+            // Hide all contents
+            document.querySelectorAll('.tab-content').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // Reset all buttons styling
+            document.getElementById('btn-bakalavr').className = "px-8 py-3 rounded-lg text-sm font-medium transition-all text-gray-600 hover:text-primary";
+            document.getElementById('btn-magistratura').className = "px-8 py-3 rounded-lg text-sm font-medium transition-all text-gray-600 hover:text-primary";
+            
+            // Show selected content
+            document.getElementById(`tab-${tabId}`).classList.add('active');
+            
+            // Highlight selected button
+            document.getElementById(`btn-${tabId}`).className = "px-8 py-3 rounded-lg text-sm font-medium transition-all shadow-sm bg-white text-primary";
+        }
+
+        // Simple Custom Slider Logic
+        let currentSlide = 0;
+        const track = document.getElementById('testimonial-track');
+        const slides = document.querySelectorAll('.slide');
+        
+        function moveSlider(direction) {
+            const slideWidth = slides[0].offsetWidth;
+            const gap = 24; // 1.5rem gap
+            const totalWidth = slideWidth + gap;
+            
+            // Calculate how many slides are visible based on screen width
+            let visibleSlides = 3;
+            if (window.innerWidth <= 640) visibleSlides = 1;
+            else if (window.innerWidth <= 1024) visibleSlides = 2;
+
+            const maxSlides = slides.length - visibleSlides;
+
+            currentSlide += direction;
+
+            // Loop back logic
+            if (currentSlide > maxSlides) {
+                currentSlide = 0;
+            } else if (currentSlide < 0) {
+                currentSlide = maxSlides;
+            }
+
+            // Move track
+            track.style.transform = `translateX(-${currentSlide * totalWidth}px)`;
+        }
+
+        // Recalculate slider on resize to prevent breaking
+        window.addEventListener('resize', () => {
+            currentSlide = 0;
+            track.style.transform = `translateX(0px)`;
+        });
+    </script>
+</body>
+</html>
