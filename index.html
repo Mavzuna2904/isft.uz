@@ -145,9 +145,9 @@
                 <nav class="hidden lg:flex gap-6 items-center">
                     
                     <div class="relative group py-4">
-                        <button class="font-medium text-gray-700 hover:text-primary flex items-center gap-1">Biz haqimizda <i class="ph ph-caret-down text-xs"></i></button>
+                        <a href="#about" class="font-medium text-gray-700 hover:text-primary flex items-center gap-1 cursor-pointer">Biz haqimizda <i class="ph ph-caret-down text-xs"></i></a>
                         <div class="absolute top-full left-0 mt-0 w-64 bg-white border border-gray-100 shadow-xl rounded-lg overflow-hidden dropdown-menu z-50">
-                            <a href="#" class="block px-4 py-3 hover:bg-gray-50 text-sm border-b">Umumiy ma'lumot</a>
+                            <a href="#about" class="block px-4 py-3 hover:bg-gray-50 text-sm border-b">Umumiy ma'lumot</a>
                             <a href="#" class="block px-4 py-3 hover:bg-gray-50 text-sm border-b">ACCA haqida</a>
                             <a href="#" class="block px-4 py-3 hover:bg-gray-50 text-sm border-b">Tuzilma</a>
                             <a href="#" class="block px-4 py-3 hover:bg-gray-50 text-sm">Me'yoriy hujjatlar</a>
@@ -155,37 +155,39 @@
                     </div>
 
                     <div class="relative group py-4">
-                        <button class="font-medium text-gray-700 hover:text-primary flex items-center gap-1">Faoliyat <i class="ph ph-caret-down text-xs"></i></button>
+                        <a href="#advantages" class="font-medium text-gray-700 hover:text-primary flex items-center gap-1 cursor-pointer">Faoliyat <i class="ph ph-caret-down text-xs"></i></a>
                         <div class="absolute top-full left-0 mt-0 w-56 bg-white border border-gray-100 shadow-xl rounded-lg overflow-hidden dropdown-menu z-50">
-                            <a href="#" class="block px-4 py-3 hover:bg-gray-50 text-sm border-b">Ilmiy faoliyat</a>
-                            <a href="#" class="block px-4 py-3 hover:bg-gray-50 text-sm border-b">O'quv faoliyati</a>
+                            <a href="#advantages" class="block px-4 py-3 hover:bg-gray-50 text-sm border-b">Ilmiy faoliyat</a>
+                            <a href="#advantages" class="block px-4 py-3 hover:bg-gray-50 text-sm border-b">O'quv faoliyati</a>
                             <a href="#" class="block px-4 py-3 hover:bg-gray-50 text-sm">Xalqaro hamkorlik</a>
                         </div>
                     </div>
 
                     <div class="relative group py-4">
-                        <button class="font-medium text-gray-700 hover:text-primary flex items-center gap-1">Abiturientlarga <i class="ph ph-caret-down text-xs"></i></button>
+                        <a href="#programs" class="font-medium text-gray-700 hover:text-primary flex items-center gap-1 cursor-pointer">Abiturientlarga <i class="ph ph-caret-down text-xs"></i></a>
                         <div class="absolute top-full left-0 mt-0 w-64 bg-white border border-gray-100 shadow-xl rounded-lg overflow-hidden dropdown-menu z-50">
-                            <a href="#" class="block px-4 py-3 hover:bg-gray-50 text-sm border-b font-medium text-primary">Qabul Komissiyasi</a>
-                            <a href="#" class="block px-4 py-3 hover:bg-gray-50 text-sm border-b">Bakalavriat</a>
-                            <a href="#" class="block px-4 py-3 hover:bg-gray-50 text-sm border-b">Magistratura</a>
+                            <a href="#contact" class="block px-4 py-3 hover:bg-gray-50 text-sm border-b font-medium text-primary">Qabul Komissiyasi</a>
+                            <a href="#programs" class="block px-4 py-3 hover:bg-gray-50 text-sm border-b">Bakalavriat</a>
+                            <a href="#programs" class="block px-4 py-3 hover:bg-gray-50 text-sm border-b">Magistratura</a>
                             <a href="#" class="block px-4 py-3 hover:bg-gray-50 text-sm">O'qishni Ko'chirish</a>
                         </div>
                     </div>
 
                     <div class="relative group py-4">
-                        <button class="font-medium text-gray-700 hover:text-primary flex items-center gap-1">Talabalarga <i class="ph ph-caret-down text-xs"></i></button>
+                        <a href="#testimonials" class="font-medium text-gray-700 hover:text-primary flex items-center gap-1 cursor-pointer">Talabalarga <i class="ph ph-caret-down text-xs"></i></a>
                         <div class="absolute top-full left-0 mt-0 w-56 bg-white border border-gray-100 shadow-xl rounded-lg overflow-hidden dropdown-menu z-50">
-                            <a href="#" class="block px-4 py-3 hover:bg-gray-50 text-sm border-b">Karyera Markazi</a>
+                            <a href="#advantages" class="block px-4 py-3 hover:bg-gray-50 text-sm border-b">Karyera Markazi</a>
                             <a href="#" class="block px-4 py-3 hover:bg-gray-50 text-sm border-b">Kutubxona</a>
-                            <a href="#" class="block px-4 py-3 hover:bg-gray-50 text-sm">Talaba ishlari</a>
+                            <a href="#testimonials" class="block px-4 py-3 hover:bg-gray-50 text-sm">Talaba ishlari</a>
                         </div>
                     </div>
 
-                    <a href="#" class="font-medium text-gray-700 hover:text-primary py-4">Yangiliklar</a>
-                    <a href="#" class="font-medium text-gray-700 hover:text-primary py-4">Aloqa</a>
+                    <a href="#" onclick="openNewsModal(event)" class="font-medium text-gray-700 hover:text-primary py-4 flex items-center gap-1 cursor-pointer">
+                        Yangiliklar <i class="ph ph-app-window text-gray-400"></i>
+                    </a>
+                    <a href="#contact" class="font-medium text-gray-700 hover:text-primary py-4">Aloqa</a>
 
-                    <a href="#" class="bg-primary text-white px-5 py-2 rounded-full font-medium hover:bg-opacity-90 transition shadow-md shadow-primary/30 ml-2">
+                    <a href="#contact" class="bg-primary text-white px-5 py-2 rounded-full font-medium hover:bg-opacity-90 transition shadow-md shadow-primary/30 ml-2">
                         Qabul
                     </a>
                 </nav>
@@ -200,12 +202,14 @@
         <!-- Mobile Menu (Hidden by default) -->
         <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-lg">
             <div class="px-4 py-2 flex flex-col gap-2 h-[70vh] overflow-y-auto">
-                <a href="#" class="block py-3 border-b text-gray-700 font-medium">Biz haqimizda</a>
-                <a href="#" class="block py-3 border-b text-gray-700 font-medium">Faoliyat</a>
-                <a href="#" class="block py-3 border-b text-gray-700 font-medium">Abiturientlarga</a>
-                <a href="#" class="block py-3 border-b text-gray-700 font-medium">Talabalarga</a>
-                <a href="#" class="block py-3 border-b text-gray-700 font-medium">Yangiliklar</a>
-                <a href="#" class="block py-3 border-b text-gray-700 font-medium">Aloqa</a>
+                <a href="#about" class="block py-3 border-b text-gray-700 font-medium">Biz haqimizda</a>
+                <a href="#advantages" class="block py-3 border-b text-gray-700 font-medium">Faoliyat</a>
+                <a href="#programs" class="block py-3 border-b text-gray-700 font-medium">Abiturientlarga</a>
+                <a href="#testimonials" class="block py-3 border-b text-gray-700 font-medium">Talabalarga</a>
+                <a href="#" onclick="openNewsModal(event); document.getElementById('mobile-menu').classList.add('hidden');" class="block py-3 border-b text-gray-700 font-medium flex justify-between items-center">
+                    Yangiliklar oynasi <i class="ph ph-app-window text-gray-400"></i>
+                </a>
+                <a href="#contact" class="block py-3 border-b text-gray-700 font-medium">Aloqa</a>
                 <div class="py-4 flex gap-4">
                     <a href="#" class="text-gray-500 hover:text-primary font-medium">Eng</a>
                     <a href="#" class="text-gray-500 hover:text-primary font-medium">Рус</a>
@@ -217,7 +221,7 @@
 
     <main class="flex-grow">
         <!-- Hero Section -->
-        <section class="relative bg-primary text-white overflow-hidden py-20 lg:py-32">
+        <section id="about" class="relative bg-primary text-white overflow-hidden py-20 lg:py-32">
             <!-- Background Decoration / Image Placeholder -->
             <div class="absolute inset-0 z-0">
                 <img src="https://placehold.co/1920x1080/1D3557/457B9D?text=ISFT+Campus+Background" alt="ISFT Background" class="w-full h-full object-cover opacity-30 mix-blend-overlay">
@@ -237,7 +241,7 @@
                     </p>
                     
                     <div class="pt-4 flex flex-wrap gap-4 items-center">
-                        <a href="#" class="bg-secondary text-white px-8 py-3.5 rounded-lg font-bold hover:bg-red-700 transition shadow-lg shadow-red-500/30 flex items-center gap-2">
+                        <a href="#contact" class="bg-secondary text-white px-8 py-3.5 rounded-lg font-bold hover:bg-red-700 transition shadow-lg shadow-red-500/30 flex items-center gap-2">
                             Hoziroq biz bilan bog'laning <i class="ph-bold ph-arrow-right"></i>
                         </a>
                         <p class="text-sm text-gray-300 max-w-xs">
@@ -266,7 +270,7 @@
                         <h3 class="text-2xl font-bold mb-4">Hoziroq ISFT instituti talabasi bo'ling</h3>
                         <p class="text-gray-200 mb-6">va bizning institutimizda BEPUL o'qish imkoniyatini qo'lga kiriting</p>
                         
-                        <a href="#" class="block w-full bg-white text-primary text-center py-3 rounded-lg font-bold hover:bg-gray-100 transition">
+                        <a href="#contact" class="block w-full bg-white text-primary text-center py-3 rounded-lg font-bold hover:bg-gray-100 transition">
                             ISFT talabasi bo'ling
                         </a>
                     </div>
@@ -362,7 +366,7 @@
         </section>
 
         <!-- Advantages -->
-        <section class="py-20 bg-gray-50">
+        <section id="advantages" class="py-20 bg-gray-50">
             <div class="max-w-7xl mx-auto px-4">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl font-bold text-primary mb-4">Imkoniyatlar va Afzalliklar</h2>
@@ -398,7 +402,7 @@
         </section>
 
         <!-- Testimonials -->
-        <section class="py-20 bg-white overflow-hidden">
+        <section id="testimonials" class="py-20 bg-white overflow-hidden">
             <div class="max-w-7xl mx-auto px-4">
                 <div class="flex justify-between items-end mb-12">
                     <div>
@@ -494,15 +498,15 @@
         </section>
 
         <!-- News Section -->
-        <section class="py-20 bg-gray-50">
+        <section id="news" class="py-20 bg-gray-50">
             <div class="max-w-7xl mx-auto px-4">
                 <div class="flex justify-between items-end mb-12">
                     <div>
                         <h2 class="text-3xl font-bold text-primary mb-2">Yangiliklar</h2>
                         <p class="text-gray-500">Institutimizdagi eng so'ngi yangiliklarni kuzatib boring</p>
                     </div>
-                    <a href="#" class="hidden sm:inline-flex items-center gap-1 text-primary font-medium hover:underline">
-                        Barcha yangiliklar <i class="ph ph-arrow-right"></i>
+                    <a href="https://isft.uz/uz/news" target="_blank" class="hidden sm:inline-flex items-center gap-1 text-primary font-medium hover:underline">
+                        isft.uz da barcha yangiliklar <i class="ph ph-arrow-up-right"></i>
                     </a>
                 </div>
 
@@ -552,9 +556,75 @@
             </div>
         </section>
 
+        <!-- News Modal -->
+        <div id="news-modal" class="fixed inset-0 bg-primary/80 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+            <div class="bg-white w-full max-w-5xl rounded-3xl shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300 flex flex-col max-h-[90vh]">
+                <!-- Modal Header -->
+                <div class="p-6 md:p-8 border-b border-gray-100 flex justify-between items-center bg-gray-50 relative overflow-hidden">
+                    <div class="absolute -top-10 -right-10 w-40 h-40 bg-secondary rounded-full blur-3xl opacity-10"></div>
+                    <div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-primary mb-1">Eng so'nggi yangiliklar</h3>
+                        <p class="text-gray-500 text-sm">Institutimiz hayotidagi so'nggi o'zgarishlar va voqealar bilan tanishing</p>
+                    </div>
+                    <button onclick="closeNewsModal()" class="w-12 h-12 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:text-red-500 hover:border-red-200 hover:shadow-md transition relative z-10">
+                        <i class="ph-bold ph-x text-xl"></i>
+                    </button>
+                </div>
+                
+                <!-- Modal Body (News Grid) -->
+                <div class="p-6 md:p-8 overflow-y-auto bg-white flex-grow">
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Card 1 -->
+                        <a href="https://isft.uz/uz/news" target="_blank" class="group block border border-gray-100 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                            <div class="h-48 overflow-hidden relative">
+                                <img src="https://placehold.co/600x400/1D3557/FFFFFF?text=Majlis" alt="News" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                                <div class="absolute top-3 right-3 bg-white/90 backdrop-blur text-primary text-xs font-bold px-3 py-1 rounded-full shadow">16 Sen, 2026</div>
+                            </div>
+                            <div class="p-5">
+                                <h4 class="font-bold text-gray-800 mb-2 group-hover:text-primary transition line-clamp-2">ISFT instituti kengashining navbatdagi majlisi bo'lib o'tdi</h4>
+                                <p class="text-sm text-gray-500 line-clamp-2">Kengash majlisida yangi o'quv yiliga tayyorgarlik va boshqa muhim masalalar muhokama qilindi.</p>
+                            </div>
+                        </a>
+                        
+                        <!-- Card 2 -->
+                        <a href="https://isft.uz/uz/news" target="_blank" class="group block border border-gray-100 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                            <div class="h-48 overflow-hidden relative">
+                                <img src="https://placehold.co/600x400/457B9D/FFFFFF?text=Dars" alt="News" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                                <div class="absolute top-3 right-3 bg-white/90 backdrop-blur text-primary text-xs font-bold px-3 py-1 rounded-full shadow">10 Sen, 2026</div>
+                            </div>
+                            <div class="p-5">
+                                <h4 class="font-bold text-gray-800 mb-2 group-hover:text-primary transition line-clamp-2">ISFT institutida "Mustaqillik darsi" tashkil etildi</h4>
+                                <p class="text-sm text-gray-500 line-clamp-2">Barcha kurs talabalari uchun yangi o'quv yili ko'tarinki ruhdagi darslar bilan boshlandi.</p>
+                            </div>
+                        </a>
+
+                        <!-- Card 3 -->
+                        <a href="https://isft.uz/uz/news" target="_blank" class="group block border border-gray-100 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                            <div class="h-48 overflow-hidden relative">
+                                <img src="https://placehold.co/600x400/E63946/FFFFFF?text=Suhbat" alt="News" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                                <div class="absolute top-3 right-3 bg-white/90 backdrop-blur text-primary text-xs font-bold px-3 py-1 rounded-full shadow">26 Avg, 2026</div>
+                            </div>
+                            <div class="p-5">
+                                <h4 class="font-bold text-gray-800 mb-2 group-hover:text-primary transition line-clamp-2">Mustaqil izlanuvchilik uchun suhbat bo'lib o'tdi</h4>
+                                <p class="text-sm text-gray-500 line-clamp-2">Ilmiy bo'lim tomonidan tayanch doktorantura qabul jarayonlari muvaffaqiyatli yakunlandi.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Modal Footer -->
+                <div class="p-6 md:p-8 border-t border-gray-100 bg-white flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <p class="text-gray-500 text-sm hidden md:block">Barcha batafsil ma'lumotlar rasmiy saytimizda!</p>
+                    <a href="https://isft.uz/uz/news" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-3.5 rounded-xl font-bold hover:bg-opacity-90 transition shadow-lg shadow-primary/30 group">
+                        isft.uz da to'liq o'qish <i class="ph-bold ph-arrow-up-right group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
     </main>
 
-    <footer class="bg-[#112240] text-gray-300 pt-16 pb-8">
+    <footer id="contact" class="bg-[#112240] text-gray-300 pt-16 pb-8">
         <div class="max-w-7xl mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12 border-b border-gray-700/50 pb-12">
                 
@@ -689,6 +759,37 @@
         window.addEventListener('resize', () => {
             currentSlide = 0;
             track.style.transform = `translateX(0px)`;
+        });
+
+        // News Modal Logic
+        function openNewsModal(e) {
+            if(e) e.preventDefault();
+            const modal = document.getElementById('news-modal');
+            modal.classList.remove('hidden');
+            // Force reflow
+            void modal.offsetWidth;
+            modal.classList.remove('opacity-0');
+            modal.querySelector('.transform').classList.remove('scale-95');
+            modal.querySelector('.transform').classList.add('scale-100');
+            document.body.style.overflow = 'hidden'; // Orqa fon skrollini to'xtatish
+        }
+
+        function closeNewsModal() {
+            const modal = document.getElementById('news-modal');
+            modal.classList.add('opacity-0');
+            modal.querySelector('.transform').classList.remove('scale-100');
+            modal.querySelector('.transform').classList.add('scale-95');
+            document.body.style.overflow = ''; // Skrollni qaytarish
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Modal tashqarisiga bosganda oynani yopish
+        document.getElementById('news-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeNewsModal();
+            }
         });
     </script>
 </body>
